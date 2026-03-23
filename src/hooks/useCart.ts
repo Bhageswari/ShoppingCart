@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { Cart } from '../types/cart';
 
-const CART_URL = 'https://dummyjson.com/carts/11';
+const CART_URL = 'https://dummyjson.com/carts/1';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
 

@@ -10,6 +10,9 @@ It loads cart data from the DummyJSON API and allows basic cart interactions.
 * Reset cart to original items
 * Automatically updates total price
 * Responsive design (grid on desktop, stacked on mobile)
+* Loading skeleton for improved UX
+* Error handling for failed API requests
+* Basic accessibility support (semantic structure, ARIA roles)
 
 ## How to Run
 
@@ -34,3 +37,11 @@ https://dummyjson.com/carts/1
 
 * No backend updates are made; all changes are handled locally
 * Only essential product fields (title and price) are displayed
+
+## Future Improvements
+
+* Add quantity update functionality
+* Persist cart state (localStorage or backend)
+* Support multiple carts
+* Improve keyboard navigation and accessibility
+* Add unit and integration tests
