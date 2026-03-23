@@ -1,14 +1,11 @@
-﻿import { ShoppingCart } from './components/ShoppingCart'
+﻿import { ShoppingCart } from './components/ShoppingCart';
 
 function App() {
   return (
-    <main
-      className="min-h-screen py-10 px-4"
-      style={{ background: 'var(--color-bg)' }}
-    >
+    <main className="min-h-screen bg-white p-6">
       <ShoppingCart />
     </main>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import type { LocalCartProduct } from '../types/cart';
-import { LABELS } from '../constants/labels';
 
 interface Props {
   product: LocalCartProduct;
@@ -10,32 +9,37 @@ interface Props {
 export const ProductCard = memo(function ProductCard({ product, onRemove }: Props) {
   return (
     <article
-      className={`product-card${product.removing ? ' product-card--removing' : ''}`}
+      className={`bg-white border border-black rounded-xl p-4 flex flex-col justify-between min-h-[120px] transition-opacity duration-300 h-full select-none ${
+        product.removing ? 'opacity-40' : ''
+      }`}
       aria-label={product.title}
+      aria-busy={product.removing}
     >
-      {/* Product title */}
-      <h3 className="text-xl font-bold" style={{ color: 'var(--color-primary)' }}>
-        {product.title}
-      </h3>
+      <div>
+        {/* Product title */}
+        <h3 className="text-lg font-bold text-black leading-snug">
+          {product.title}
+        </h3>
 
-      {/* Discounted line price */}
-      <p
-        className="text-xl font-semibold"
-        style={{ color: 'var(--color-primary)' }}
-        aria-label={`${LABELS.price} $${product.discountedTotal.toFixed(2)}`}
-      >
-        ${product.discountedTotal.toFixed(2)}
-      </p>
+        {/* Price */}
+        <p
+          className="text-sm text-black mt-2"
+          aria-label={`Price $${product.discountedTotal.toFixed(2)}`}
+        >
+          ${product.discountedTotal.toFixed(2)}
+        </p>
+      </div>
 
       {/* Remove button */}
-      <button
-        type="button"
-        className="btn-remove"
-        onClick={() => onRemove(product.id)}
-        aria-label={LABELS.removeFromCart(product.title)}
-      >
-        {LABELS.remove}
-      </button>
+      <div className="flex justify-end mt-4">
+        <button
+          onClick={() => onRemove(product.id)}
+          className="bg-gray-200 text-black text-sm px-4 py-1.5 rounded hover:bg-gray-300 transition cursor-pointer focus:outline-none focus:ring-2 focus:ring-black"
+          aria-label={`Remove ${product.title} from cart`}
+        >
+          Remove
+        </button>
+      </div>
     </article>
   );
 });

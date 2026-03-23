@@ -11,7 +11,6 @@ interface UseCartResult {
   error: string | null;
 }
 
-
 export function useCart(): UseCartResult {
   const [cart, setCart] = useState<Cart | null>(null);
   const [status, setStatus] = useState<Status>('idle');
